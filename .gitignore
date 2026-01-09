@@ -1,0 +1,23 @@
+*
+!*/
+!*.*
+*.hdf5
+*.pyc
+__pycache__
+
+# local outputs
+Models/
+models/
+results/
+output.mp4
+transcription.mid
+*.log
+
+# build artifacts
+dist/
+build/
+*.spec
+
+# virtual env
+.venv/
+venv/

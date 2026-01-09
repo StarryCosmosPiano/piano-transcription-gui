@@ -1,0 +1,13 @@
+audioread
+h5py
+librosa
+matplotlib
+mido
+mir_eval
+numba
+numpy
+pandas
+resampy
+soundfile
+torchlibrosa
+sox
