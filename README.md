@@ -49,6 +49,20 @@ Notes:
 Place your `.pth` model file in `Models/` or select it manually in the GUI.
 Due to GitHub file size limits, checkpoints are not stored in Git by default.
 
+Download the official pretrained checkpoint from Zenodo:
+https://zenodo.org/records/4034264
+
+Steps:
+1) Download `CRNN_note_F1=0.9677_pedal_F1=0.9186.pth`.
+2) Create `Models/` in the repo root if it does not exist.
+3) Move the `.pth` file into `Models/`.
+
+PowerShell example:
+```
+New-Item -ItemType Directory -Force Models | Out-Null
+curl -L -o Models/CRNN_note_F1=0.9677_pedal_F1=0.9186.pth https://zenodo.org/records/4034264/files/CRNN_note_F1=0.9677_pedal_F1=0.9186.pth
+```
+
 ## Verify CUDA
 
 Use this snippet to confirm GPU visibility:
