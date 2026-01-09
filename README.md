@@ -1,5 +1,7 @@
 # Piano Transcription GUI (RTX 50 Ready)
 
+Source-only / not packaged yet
+
 This repository is an updated, Windows-friendly fork of ByteDance's
 [piano_transcription](https://github.com/bytedance/piano_transcription). It adds:
 
@@ -25,7 +27,7 @@ pip install -r requirements-gui.txt
 ```
 winget install Gyan.FFmpeg
 ```
-6) Place a checkpoint in `Models/` (auto-detected) or select it in the GUI.
+6) Place a checkpoint in `Models/` or `models/` (auto-detected) or select it in the GUI.
 7) Launch the GUI:
 ```
 python transcribe_gui.py
@@ -35,9 +37,11 @@ If CUDA is available, choose `cuda` in the GUI.
 
 ## GUI Usage
 
-1) Put your checkpoint in `Models/` or browse to it.
+1) Put your checkpoint in `Models/` or `models/` or browse to it.
 2) Add files or folders.
 3) Run batch inference.
+
+![GUI screenshot](resources/gui.png)
 
 Notes:
 - Output defaults to the same folder as each input audio file (custom output is supported).
@@ -46,7 +50,7 @@ Notes:
 
 ## Checkpoint Files
 
-Place your `.pth` model file in `Models/` or select it manually in the GUI.
+Place your `.pth` model file in `Models/` or `models/` or select it manually in the GUI.
 Due to GitHub file size limits, checkpoints are not stored in Git by default.
 
 Download the official pretrained checkpoint from Zenodo:
@@ -54,14 +58,20 @@ https://zenodo.org/records/4034264
 
 Steps:
 1) Download `CRNN_note_F1=0.9677_pedal_F1=0.9186.pth`.
-2) Create `Models/` in the repo root if it does not exist.
-3) Move the `.pth` file into `Models/`.
+2) Create `Models/` or `models/` in the repo root if it does not exist.
+3) Move the `.pth` file into that folder.
 
 PowerShell example:
 ```
 New-Item -ItemType Directory -Force Models | Out-Null
 curl -L -o Models/CRNN_note_F1=0.9677_pedal_F1=0.9186.pth https://zenodo.org/records/4034264/files/CRNN_note_F1=0.9677_pedal_F1=0.9186.pth
 ```
+
+## Requirements files
+
+- `requirements.txt`: original training environment (legacy pins, Python 3.7 era).
+- `requirements-gui.txt`: GUI + inference on modern Python (recommended for RTX 50).
+  Install PyTorch separately from https://pytorch.org/get-started/locally/
 
 ## Verify CUDA
 
@@ -90,7 +100,9 @@ repo. See `runme.sh` and the original README workflow for details.
 
 ## License
 
-Apache 2.0
+Apache 2.0 (code). Pretrained weights from Zenodo are provided by the
+original authors and are licensed under CC BY 4.0. See:
+https://zenodo.org/records/4034264
 
 ## Credits
 
